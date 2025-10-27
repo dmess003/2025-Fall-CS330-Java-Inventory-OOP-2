@@ -167,7 +167,7 @@ public class Tool extends Equippable {
             String.format("  Dur: %d", this.getDurability()),
             String.format("  Spd: %d", this.getSpeed()),
             String.format("  Mtl: %s", this.getMaterial()),
-            String.format("  Mdr: %s (Lvl %d)%n", super.getModifier(), super.getModifierLevel()),
+            String.format("  Mdr: %s (Lvl %d)", super.getModifier(), super.getModifierLevel()),
             ""
         );
     }
