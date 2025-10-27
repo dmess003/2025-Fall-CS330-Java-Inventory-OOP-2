@@ -164,10 +164,11 @@ public class Tool extends Equippable {
         return String.join(
             System.lineSeparator(),
             String.format("  Nme: %s", super.getName()),
-            String.format("  Dur: %s", this.getDurability()),
+            String.format("  Dur: %d", this.getDurability()),
             String.format("  Spd: %d%n", this.getSpeed()),
             String.format("  Mtl: %s%n", this.getMaterial()),
-            String.format("  Mdr: %s (Lvl %s)", super.getModifier(), super.getModifierLevel())
+            String.format("  Mdr: %s (Lvl %d)", super.getModifier(), super.getModifierLevel()),
+            ""
         );
     }
 }
