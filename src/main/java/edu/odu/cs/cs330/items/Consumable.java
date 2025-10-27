@@ -176,7 +176,8 @@ public class Consumable extends Item {
             System.lineSeparator(),
             String.format("  Nme: %s", super.getName()),
             String.format("  Eft: %s", this.getEffect()),
-            String.format("  Use: %d%n", this.getNumberOfUses())
+            String.format("  Use: %d%n", this.getNumberOfUses()),
+            ""
         );
     }
 }
