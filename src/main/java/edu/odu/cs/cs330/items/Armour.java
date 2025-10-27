@@ -125,10 +125,10 @@ public class Armour extends Equippable {
         // Replace this return
         return
         (
-            this.name == rhsItem.name && 
-            this.material == rhsItem.material &&
-            this.modifier == rhsItem.modifier &&
-            this.element == rhsItem.element
+            this.name.equals(rhsItem.name) && 
+            this.material.equals(rhsItem.material) &&
+            this.modifier.equals(rhsItem.modifier) &&
+            this.element.equals(rhsItem.element)
         );
     }
 

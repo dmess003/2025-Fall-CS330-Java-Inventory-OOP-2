@@ -108,6 +108,9 @@ public class Consumable extends Item {
     public void read(Scanner snr)
     {
         // Complete this method
+        setName(snr.next());
+        setEffect(snr.next());
+        setNumberOfUses(snr.nextInt());
     }
 
     /**
@@ -119,6 +122,9 @@ public class Consumable extends Item {
         Consumable cpy = new Consumable();
         
         // Add the missing logic
+        cpy.name = this.name;
+        cpy.effect = this.effect;
+        cpy.uses = this.uses;
 
         return cpy;
     }
@@ -152,7 +158,14 @@ public class Consumable extends Item {
     public int hashCode()
     {
         // Replace the return
-        return -1;
+        final int PRIME = 31;
+        int result = 1;
+
+        result = PRIME * result + this.name.hashCode();
+        result = PRIME * result + this.effect.hashCode();
+        result = PRIME * result + this.uses;
+
+        return result;
     }
 
     /**
@@ -163,10 +176,9 @@ public class Consumable extends Item {
     {
         return String.join(
             System.lineSeparator(),
-            String.format("  Refer to..."),
-            String.format("  ...solution for the..."),
-            String.format("  ...previous assignment"),
-            ""
+            String.format("  Nme: %s", super.getName()),
+            String.format("  Eft: %s", this.getEffect()),
+            String.format("  Use: %d%n", this.getNumberOfUses())
         );
     }
 }
