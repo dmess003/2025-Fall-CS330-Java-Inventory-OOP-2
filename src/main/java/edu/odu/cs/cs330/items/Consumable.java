@@ -158,12 +158,10 @@ public class Consumable extends Item {
     public int hashCode()
     {
         // Replace the return
-        final int PRIME = 31;
-        int result = 1;
+        int result = 0;
 
-        result = PRIME * result + this.name.hashCode();
-        result = PRIME * result + this.effect.hashCode();
-        result = PRIME * result + this.uses;
+        result += this.name.hashCode();
+        result += this.effect.hashCode();
 
         return result;
     }

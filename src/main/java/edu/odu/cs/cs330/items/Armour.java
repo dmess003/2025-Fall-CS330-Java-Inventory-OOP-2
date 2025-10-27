@@ -140,13 +140,12 @@ public class Armour extends Equippable {
     public int hashCode()
     {
         // Replace this return
-        final int PRIME = 31;
-        int result = 1;
+        int result = 0;
 
-        result = PRIME * result + this.name.hashCode();
-        result = PRIME * result + this.material.hashCode();
-        result = PRIME * result + this.modifier.hashCode();
-        result = PRIME * result + this.element.hashCode();
+        result += this.name.hashCode();
+        result += this.material.hashCode();
+        result += this.modifier.hashCode();
+        result += this.element.hashCode();
 
         return result;
     }
