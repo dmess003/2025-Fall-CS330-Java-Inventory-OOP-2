@@ -45,6 +45,12 @@ public class Armour extends Equippable {
 
         this.durability = src.durability;
         // Copt the remaining fields (data members)
+        this.defense = src.defense;
+        this.durability = src.durability;
+        this.element = src.element;
+        this.material = src.material;
+        this.modifier = src.modifier;
+        this.modifierLevel = src.modifierLevel;
     }
 
     /**
@@ -82,6 +88,12 @@ public class Armour extends Equippable {
         super.name = snr.next();
 
         // Use snr.next() and snr.nextInt() to read in values remaining fields
+        super.material = snr.next();
+        super.durability = snr.nextInt();
+        this.defense = snr.nextInt();
+        super.modifier = snr.next();
+        super.modifierLevel = snr.nextInt();
+        super.element = snr.next();
 
     }
 
@@ -92,7 +104,7 @@ public class Armour extends Equippable {
     public Item clone()
     {
         // Replace the return
-        return new Armour();
+        return new Armour(this);
     }
 
     /**
@@ -111,8 +123,13 @@ public class Armour extends Equippable {
         Armour rhsItem = (Armour) rhs;
 
         // Replace this return
-        return false;
-
+        return
+        (
+            this.name == rhsItem.name && 
+            this.material == rhsItem.material &&
+            this.modifier == rhsItem.modifier &&
+            this.element == rhsItem.element
+        );
     }
 
     /**
@@ -123,7 +140,15 @@ public class Armour extends Equippable {
     public int hashCode()
     {
         // Replace this return
-        return -1;
+        final int PRIME = 31;
+        int result = 1;
+
+        result = PRIME * result + this.name.hashCode();
+        result = PRIME * result + this.material.hashCode();
+        result = PRIME * result + this.modifier.hashCode();
+        result = PRIME * result + this.element.hashCode();
+
+        return result;
     }
 
     /**
@@ -134,10 +159,12 @@ public class Armour extends Equippable {
     {
         return String.join(
             System.lineSeparator(),
-            String.format("  Refer to..."),
-            String.format("  ...solution for the..."),
-            String.format("  ...previous assignment"),
-            ""
+            String.format("  Nme: %s", super.getName()),
+            String.format("  Dur: %d", super.getDurability()),
+            String.format("  Def: %d", this.getDefense()),
+            String.format("  Mtl: %s", super.getMaterial()),
+            String.format("  Mdr: %s (Lvl %s)", super.getModifier(), super.getModifierLevel()),
+            String.format("  Emt: %s%n", super.getElement())
         );
     }
 }
